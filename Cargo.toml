@@ -1,0 +1,11 @@
+[package]
+name = "bevy_mod_value_filter"
+version = "0.16.1"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+description = "A third party crate for bevy that enable value-based filtering"
+keywords = ["bevy", "query", "value", "filter", "component"]
+readme = "README.md"
+
+[dependencies]
+bevy_ecs = "0.16.1"
