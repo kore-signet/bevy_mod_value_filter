@@ -83,15 +83,23 @@ unsafe impl<T: Component, Pred: Predicate<T>> WorldQuery for Check<T, Pred> {
     unsafe fn set_archetype<'w>(
         fetch: &mut Self::Fetch<'w>,
         state: &Self::State,
-        archetype: &'w Archetype,
+        _archetype: &'w Archetype,
         table: &'w Table,
     ) {
+        if Self::IS_DENSE {
+            unsafe {
+                Self::set_table(fetch, state, table);
+            }
+        }
     }
 
     unsafe fn set_table<'w>(fetch: &mut Self::Fetch<'w>, state: &Self::State, table: &'w Table) {
         fetch.table_components = Some(unsafe {
-            table.get_column(state.component_id).unwrap().get
-            //.get_data_slice(len)
+            table
+                .get_column(state.component_id)
+                .unwrap()
+                .get_data_slice(table.entity_count())
+                .into()
         })
     }
 

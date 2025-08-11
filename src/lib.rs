@@ -15,6 +15,8 @@ use core::{marker::PhantomData, ops::Deref};
 use bevy_ecs::component::Component;
 
 mod impls;
+#[cfg(test)]
+mod tests;
 
 /// Filter that selects entities with a component `T`, if the given [`Predicate`] is satisfied.
 ///
