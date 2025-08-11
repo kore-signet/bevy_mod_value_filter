@@ -6,6 +6,7 @@ license = "MIT OR Apache-2.0"
 description = "A third party crate for bevy that enable value-based filtering"
 keywords = ["bevy", "query", "value", "filter", "component"]
 readme = "README.md"
+repository = "https://github.com/craftyneil/bevy_mod_value_filter"
 
 [dependencies]
 bevy_ecs = "0.16.1"
