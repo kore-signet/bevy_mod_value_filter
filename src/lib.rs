@@ -8,7 +8,7 @@
 
 #![no_std]
 #![warn(missing_docs)]
-#![allow(unused)]
+// #![allow(unused)]
 
 use core::{marker::PhantomData, ops::Deref};
 

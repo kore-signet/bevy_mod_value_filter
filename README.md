@@ -1,4 +1,8 @@
-This crate is a rework of the crate [bevy_mod_check_filter](https://github.com/ItsDoot/bevy_mod_check_filter) that makes it compatible with bevy 0.16.1 and higher.
+> [!CAUTION]
+> This crate is currently under development and will soon be completed for basic functionality.
+
+> [!TIP]
+> bevy_mod_value_filter is a rework of the crate [bevy_mod_check_filter](https://github.com/ItsDoot/bevy_mod_check_filter) that makes it compatible with bevy 0.16.1 and higher.
 
 # bevy_mod_value_filter
 
