@@ -134,6 +134,7 @@ unsafe impl<T: Component, Pred: Predicate<T>> QueryFilter for Check<T, Pred> {
     const IS_ARCHETYPAL: bool = false;
 
     unsafe fn filter_fetch(
+        _: &Self::State,
         fetch: &mut Self::Fetch<'_>,
         _entity: Entity,
         table_row: TableRow,
