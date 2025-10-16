@@ -98,7 +98,7 @@ unsafe impl<T: Component, Pred: Predicate<T>> WorldQuery for Check<T, Pred> {
             table
                 .get_column(state.component_id)
                 .unwrap()
-                .get_data_slice(table.entity_count())
+                .get_data_slice(table.entity_count() as usize)
                 .into()
         })
     }
@@ -119,7 +119,7 @@ unsafe impl<T: Component, Pred: Predicate<T>> WorldQuery for Check<T, Pred> {
         set_contains_id(state.component_id)
     }
 
-    fn update_component_access(state: &Self::State, access: &mut FilteredAccess<ComponentId>) {
+    fn update_component_access(state: &Self::State, access: &mut FilteredAccess) {
         assert!(
             !access.access().has_component_write(state.component_id),
             "Equals<{}, _> conflicts with a previous access in this query. Shared access cannot coincide with exclusive access.",
@@ -143,7 +143,7 @@ unsafe impl<T: Component, Pred: Predicate<T>> QueryFilter for Check<T, Pred> {
             fetch
                 .table_components
                 .unwrap()
-                .get(table_row.as_usize())
+                .get(table_row.index())
                 .deref()
         };
 
